@@ -1,10 +1,11 @@
 --[[
-Version 2.0.0
+Version 2.0.1
 ]]
 
-distance_list={400,375,350,325,300,275,250,225,200,175,150,125,100,75,50,45,40,35,30,25,20,15,10,5}
-button_r=25
-dx=5
+distance_list={400,375,350,325,300,275,250,225,200,175,150,125,100,75,50,45,40,35,30,25,20,15,10,5} --export list of distances
+createWaypoint=true --export create target waypoint
+button_radius=25 --export radius of buttons
+dx=5 --export distance between buttons
 current_di=1
 margin=0.10
 
@@ -12,8 +13,8 @@ hudHTML=[[
 <svg width="100vw" height="100vh" viewBox="0 0 1920 1080">
 ]]
 
-cx=button_r
-cy=button_r
+cx=button_radius
+cy=button_radius
 for index,d in pairs(distance_list) do
     if d==distance_list[current_di] then
         stroke_color="#CCBB44"
@@ -21,10 +22,10 @@ for index,d in pairs(distance_list) do
         stroke_color="white"
     end
     hudHTML=hudHTML..[[
-    <circle cx="]]..cx..[[" cy="]]..cy..[[" r="]]..button_r..[[" stroke="]]..stroke_color..[[" stroke-width="3" fill="black"/>
+    <circle cx="]]..cx..[[" cy="]]..cy..[[" r="]]..button_radius..[[" stroke="]]..stroke_color..[[" stroke-width="3" fill="black"/>
     <text x="]]..cx..[[" y="]]..cy..[[" font-size='14' fill="#228833" text-anchor='middle' font-family='Montserrat'>]]..d..[[</text>
     ]]
-    cx=cx+2*button_r+dx
+    cx=cx+2*button_radius+dx
     end
 
 hudHTML=hudHTML..[[
@@ -34,7 +35,7 @@ hudHTML=hudHTML..[[
 
 measureCount=0
 
-system.print("Welcome to SimplePiMans Ore Finder")
+system.print("Welcome to Xairooo's Ore Finder")
 system.print("Alt+1 moves the selected measurement left")
 system.print("Alt+2 moves the selected measurement right")
 system.print("Alt+3 locks in the measurement")

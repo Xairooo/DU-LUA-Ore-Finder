@@ -116,6 +116,7 @@ else
                 system.print(marker_pos)
                 system.print("("..marker_x..","..marker_y..","..marker_z..")")
                 system.print("distance from player: "..dist_to_player)
+                if createWaypoint==true then system.setWaypoint(marker_pos) end
             else
                 system.print("Unable to find a suitable best guess location")
                 system.print("submit another measurement or restart")
@@ -126,4 +127,5 @@ else
         end
      end
 end
+
 
